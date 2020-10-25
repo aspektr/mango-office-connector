@@ -16,6 +16,8 @@ final case class Config(vpbx_api_key: String = "",
 
 object Config {
   val FILENAME = "out.csv"
+  val SLEEPTIME = 5000
+  val OK = 200
 }
 
 

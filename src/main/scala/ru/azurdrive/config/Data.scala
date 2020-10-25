@@ -6,6 +6,11 @@ object Data {
 
   val SEPARATOR = ";"
 
+
+  final case class Key(key: String) {
+    override def toString: String = "{\"key\":" + "\"" +  key + "\"" + "}"
+  }
+
   /**
    *
    * @param records          идентификаторы записей разговоров в виде [rec1,rec2,rec3];
@@ -48,8 +53,6 @@ object Data {
     def seqStrToCall(in: List[String]): Seq[Call] = in.map(strToCall)
 
     def strToCall(in: String): Call = {
-      print(in)
-      print(in.trim)
       val attr = in.trim.split(SEPARATOR)
       Call(tryGetVal(0, attr),
         tryGetVal(1, attr).toLong,
