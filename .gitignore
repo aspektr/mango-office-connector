@@ -3,3 +3,13 @@
 *.class
 *.log
 
+.bsp/
+.idea/
+project/target/scala-2.12/
+project/target/streams/
+target/.history3
+target/global-logging/
+target/scala-2.12/classes/logback.xml
+target/scala-2.12/update/
+target/streams/
+target/task-temp-directory/

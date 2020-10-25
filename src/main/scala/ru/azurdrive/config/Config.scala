@@ -14,3 +14,8 @@ final case class Config(vpbx_api_key: String = "",
                  )
 
 
+object Config {
+  val FILENAME = "out.csv"
+}
+
+

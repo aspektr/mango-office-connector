@@ -3,21 +3,21 @@ package ru.azurdrive
 
 import cats.effect.IO.fromEither
 import cats.effect._
-import org.http4s.{EntityDecoder, Request, Uri, UrlForm}
-import org.http4s.dsl.io.POST
-import org.http4s.client.Client
-import org.http4s.client.blaze.BlazeClientBuilder
-
-import scala.concurrent.ExecutionContext.global
 import com.typesafe.scalalogging.LazyLogging
-import org.http4s.client.dsl.Http4sClientDsl
 import io.circe.generic.auto._
 import org.http4s.circe.jsonOf
-import ru.azurdrive.config.Config
-import scopt.OParser
-import ru.azurdrive.config.ConfigBuilder.parser1
+import org.http4s.client.Client
+import org.http4s.client.blaze.BlazeClientBuilder
+import org.http4s.client.dsl.Http4sClientDsl
+import org.http4s.dsl.io.POST
+import org.http4s.{EntityDecoder, Request, Uri, UrlForm}
 import purecsv.unsafe._
-import ru.azurdrive.config.Data.Call.{seqStrToCall, strToCall}
+import ru.azurdrive.config.Config
+import ru.azurdrive.config.ConfigBuilder.parser1
+import ru.azurdrive.config.Data.Call.seqStrToCall
+import scopt.OParser
+import scala.concurrent.ExecutionContext.global
+import ru.azurdrive.config.Config.FILENAME
 
 
 
@@ -83,9 +83,7 @@ object MangoConnector extends  IOApp with Http4sClientDsl[IO] with LazyLogging{
   }
 
   def  writeToCsv(res: List[String]): IO[Unit] = IO{
-    //logger.info(strToCall(res.head.trim).toCSV())
-    //logger.info(res.head.trim)
-    seqStrToCall(res).writeCSVToFileName("out3.csv")
+    seqStrToCall(res).writeCSVToFileName(FILENAME)
   }
 
 
