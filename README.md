@@ -1,4 +1,4 @@
-# Mongo office connector
+# Mango office connector
 get call statistics from api
 
 ## Build
@@ -10,7 +10,7 @@ get call statistics from api
 output:
 ```
 mangocon 0.1
-Usage: java -jar mongocon.jar [options]
+Usage: java -jar mangocon.jar [options]
 
   -k, --vpbx_api_key <value>
                            mandatory vpbx api key
