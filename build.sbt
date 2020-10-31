@@ -2,9 +2,10 @@ name := "mango"
 
 version := "0.1"
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.11.12"
 
-val http4sVersion = "0.21.7"
+lazy val http4sVersion = "0.21.0-M1"
+lazy val circeGenericVersion = "0.12.0-M3"
 
 // Only necessary for SNAPSHOT releases
 //esolvers += Resolver.sonatypeRepo("snapshots")
@@ -24,9 +25,9 @@ libraryDependencies ++= Seq(
 libraryDependencies ++= Seq(
   "org.http4s" %% "http4s-circe" % http4sVersion,
   // Optional for auto-derivation of JSON codecs
-  "io.circe" %% "circe-generic" % "0.13.0",
+  "io.circe" %% "circe-generic" % circeGenericVersion,
   // Optional for string interpolation to JSON model
-  "io.circe" %% "circe-literal" % "0.13.0"
+  "io.circe" %% "circe-literal" % circeGenericVersion
 )
 
 libraryDependencies += "com.github.scopt" %% "scopt" % "4.0.0-RC2"
